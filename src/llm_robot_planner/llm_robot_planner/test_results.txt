@@ -1,0 +1,117 @@
+shital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ python3 planner_node.py
+Enter task: Go to the living room and wait
+
+Generated Plan:
+
+[
+  {"action":"navigate_to","target":"living_room"},
+  {"action":"wait"}
+]
+shital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ python3 planner_node.py
+Enter task: Pick up the book
+
+Generated Plan:
+
+[
+  {"action":"navigate_to","target":"living_room"},
+  {"action":"detect_object","target":"book"},
+  {"action":"pick_up","target":"book"}
+]
+shital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ python3 planner_node.py
+Enter task: Go to the kitchen, find the cup, and place it on the table
+
+Generated Plan:
+
+[
+  {"action":"navigate_to","target":"kitchen"},
+  {"action":"detect_object","target":"cup"},
+  {"action":"pick_up","target":"cup"},
+  {"action":"place_object","target":"table"}
+]
+shital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ python3 planner_node.py
+Enter task: Go to the kitchen and pick up the cup
+
+Generated Plan:
+
+[
+  {"action":"navigate_to","target":"kitchen"},
+  {"action":"detect_object","target":"cup"},
+  {"action":"pick_up","target":"cup"}
+]
+shital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ python3 planner_node.py
+Enter task: Go to the living room and wait
+
+Generated Plan:
+
+[
+  {"action":"navigate_to","target":"living_room"},
+  {"action":"wait"}
+]
+shital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ python3 planner_node.py
+Enter task: Go to the kitchen, find the cup, and place it on the table
+
+Generated Plan:
+
+[
+  {"action":"navigate_to","target":"kitchen"},
+  {"action":"detect_object","target":"cup"},
+  {"action":"pick_up","target":"cup"},
+  {"action":"place_object","target":"table"}
+]
+shital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ python3 planner_node.py
+Enter task: Wait for 10 seconds
+
+Generated Plan:
+
+[
+  {"action": "wait", "duration": 10}
+]
+shital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ python3 planner_node.py
+Enter task: Fly to the kitchen
+
+Generated Plan:
+
+[
+  {"action":"navigate_to","target":"kitchen"}
+]
+shital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ python3 planner_node.py
+Enter task: Open the door and enter the room
+
+Generated Plan:
+
+[
+  {"action":"navigate_to","target":"door"},
+  {"action":"wait"},
+  {"action":"pick_up","target":"door"},
+  {"action":"place_object","target":"room"}
+]
+
+
+#NORMALIZE ---> "Normalize convert alll wierd task into one formate" 
+
+hital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ python3 planner_node.py
+Enter task: go to the kitchen and bring door 
+
+Generated Plan:
+
+Here is the planned task in JSON format:
+
+{
+"actions": [
+    {"action": "navigate_to", "location": "kitchen"},
+    {"action": "detect_object", "object": "door"},
+    {"action": "pick_up", "object": "door"},
+    {"action": "place_object", "location": ""}
+]
+}
+
+Note: The final action places the door at an unknown location, as it was not specified in the task.
+
+NORMALIZED PLAN:
+{'actions': [{'action': 'navigate_to', 'target': 'kitchen'}, {'action': 'detect_object', 'target': 'door'}, {'action': 'pick_up', 'target': 'door'}, {'action': 'place_object', 'target': None}]}
+
+Validation Result:
+Unknown object: door
+❌ Plan Rejected
+shital-tiwari@shital-tiwari-LOQ-15AHP10:~/ros2_ws/src/llm_robot_planner/llm_robot_planner$ 
+
